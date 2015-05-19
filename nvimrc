@@ -5,7 +5,6 @@ endif
 
 call plug#begin('~/.nvim/plugged')
 " Make sure you use single quotes
-Plug 'junegunn/vim-plug'
 Plug 'bling/vim-airline'
 Plug 'cschlueter/vim-wombat'
 Plug 'fmoralesc/vim-pad'
