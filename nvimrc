@@ -11,8 +11,11 @@ Plug 'cschlueter/vim-wombat'
 Plug 'fmoralesc/vim-pad'
 Plug 'MarcWeber/vim-addon-local-vimrc'
 Plug 'rking/ag.vim'
-"Plug 'Shougo/unite.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'Shougo/unite.vim'
 Plug 'benekastah/neomake'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 " WTF
@@ -129,6 +132,16 @@ nnoremap k gk
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+
+" Unite
+nnoremap <Leader>f :Unite -start-insert file<CR>
+nnoremap <C-p> :Unite -start-insert file_rec<CR>
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<S-Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 " ------------- EXPERIMENTAL
 
