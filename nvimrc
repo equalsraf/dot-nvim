@@ -49,6 +49,7 @@ set wildmode=list:longest,full		" set wildmode to list full
 set cul					" highlight line under cursor
 set laststatus=2			" Always show statusline
 set wildignore=*.swp,*.pyc,*.class,*.o,*.moc
+set wildignorecase
 set hidden
 set mouse=a
 set nofoldenable			" I hate folding with a passion
