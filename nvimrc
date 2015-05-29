@@ -3,7 +3,7 @@ if $SHELL =~ 'bin/fish'
 	set shell=/bin/sh
 endif
 
-call plug#begin('~/.nvim/plugged')
+call plug#begin(fnamemodify($MYVIMRC, ':p:h') . '/plugged')
 " Make sure you use single quotes
 Plug 'bling/vim-airline'
 Plug 'cschlueter/vim-wombat'
