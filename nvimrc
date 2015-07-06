@@ -175,3 +175,6 @@ function! SwitchSpellcheck()
 endfunction
 map <F4> :call SwitchSpellcheck()<CR>
 
+" Neovim-qt Guifont command
+command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>")
+let g:Guifont="DejaVu Sans Mono:h13"
