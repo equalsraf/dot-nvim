@@ -15,6 +15,7 @@ Plug 'Shougo/unite.vim'
 Plug 'benekastah/neomake'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 " WTF
