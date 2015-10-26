@@ -16,6 +16,7 @@ Plug 'benekastah/neomake'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'rust-lang/rust.vim'
+Plug 'rhysd/committia.vim'
 call plug#end()
 
 " WTF
@@ -96,6 +97,9 @@ au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
 au FileType rust setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
 au FileType html,javascript,css setlocal tabstop=4 shiftwidth=4 softtabstop=4
 au BufNewFile,BufRead *.md set filetype=markdown
+au FileType markdown setlocal wrap linebreak nolist
+au BufRead,BufNewFile *.ts setlocal filetype=typescript
+let g:TSSshowErrors=1
 
 " --------- Some mappings
 set pastetoggle=<F2>	" F2 toggles the paste mode
@@ -175,6 +179,11 @@ function! SwitchSpellcheck()
 endfunction
 map <F4> :call SwitchSpellcheck()<CR>
 
-" Neovim-qt Guifont command
-command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>")
-let g:Guifont="DejaVu Sans Mono:h13"
+set mouse=a
+
+" Neovim GUI
+command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
+Guifont DejaVu Sans Mono:h13
+command -nargs=? Guifontinc call rpcnotify(0, 'Gui', 'IncreaseFont', "<args>")
+command -nargs=? Guifontdec call rpcnotify(0, 'Gui', 'DecreaseFont', "<args>")
+
