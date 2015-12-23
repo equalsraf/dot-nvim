@@ -17,6 +17,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'rust-lang/rust.vim'
 Plug 'rhysd/committia.vim'
+Plug 'Shougo/deoplete.nvim'
 call plug#end()
 
 " WTF
@@ -147,6 +148,9 @@ nnoremap <C-p> :Unite -start-insert file_rec<CR>
 let g:UltiSnipsExpandTrigger="<S-Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
 
 " ------------- EXPERIMENTAL
 
