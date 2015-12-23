@@ -9,7 +9,7 @@ Plug 'bling/vim-airline'
 Plug 'cschlueter/vim-wombat'
 Plug 'fmoralesc/vim-pad'
 Plug 'MarcWeber/vim-addon-local-vimrc'
-Plug 'rking/ag.vim'
+Plug 'gabesoft/vim-ags'
 Plug 'tpope/vim-fugitive'
 Plug 'Shougo/unite.vim'
 Plug 'benekastah/neomake'
@@ -183,7 +183,7 @@ set mouse=a
 
 " Neovim GUI
 command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
-Guifont DejaVu Sans Mono:h13
+Guifont Anonymous Pro for Powerline:h15
 command -nargs=? Guifontinc call rpcnotify(0, 'Gui', 'IncreaseFont', "<args>")
 command -nargs=? Guifontdec call rpcnotify(0, 'Gui', 'DecreaseFont', "<args>")
 
