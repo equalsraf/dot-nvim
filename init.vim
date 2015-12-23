@@ -186,8 +186,8 @@ map <F4> :call SwitchSpellcheck()<CR>
 set mouse=a
 
 " Neovim GUI
-command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
+command! -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
 Guifont Anonymous Pro for Powerline:h15
-command -nargs=? Guifontinc call rpcnotify(0, 'Gui', 'IncreaseFont', "<args>")
-command -nargs=? Guifontdec call rpcnotify(0, 'Gui', 'DecreaseFont', "<args>")
+command! -nargs=? Guifontinc call rpcnotify(0, 'Gui', 'IncreaseFont', "<args>")
+command! -nargs=? Guifontdec call rpcnotify(0, 'Gui', 'DecreaseFont', "<args>")
 
