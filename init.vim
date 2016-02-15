@@ -198,5 +198,10 @@ map <F4> :call SwitchSpellcheck()<CR>
 
 " Neovim GUI
 command! -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
-Guifont DejaVu Sans Mono:h15
+
+if has('win32')
+	Guifont DejaVu Sans Mono for Powerline:h15
+else
+	Guifont DejaVu Sans Mono:h15
+endif
 
