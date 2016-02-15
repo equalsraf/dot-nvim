@@ -11,13 +11,16 @@ Plug 'fmoralesc/vim-pad'
 Plug 'MarcWeber/vim-addon-local-vimrc'
 Plug 'gabesoft/vim-ags'
 Plug 'tpope/vim-fugitive'
-Plug 'Shougo/unite.vim'
 Plug 'benekastah/neomake'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'rust-lang/rust.vim'
 Plug 'rhysd/committia.vim'
 Plug 'Shougo/deoplete.nvim'
+Plug 'Chiel92/vim-autoformat'
+Plug 'vim-scripts/LanguageTool'
+Plug 'mrk21/yaml-vim'
+Plug 'justinmk/vim-dirvish'
 call plug#end()
 
 " WTF
@@ -101,6 +104,8 @@ au BufNewFile,BufRead *.md set filetype=markdown
 au FileType markdown setlocal wrap linebreak nolist
 au BufRead,BufNewFile *.ts setlocal filetype=typescript
 let g:TSSshowErrors=1
+" Tex - show breaks, disable cul, scroll one line at a time
+au FileType tex setlocal wrap linebreak showbreak=.. nocul scroll=1
 
 " --------- Some mappings
 set pastetoggle=<F2>	" F2 toggles the paste mode
@@ -140,10 +145,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 
-" Unite
-nnoremap <Leader>f :Unite -start-insert file<CR>
-nnoremap <C-p> :Unite -start-insert file_rec<CR>
-
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<S-Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"
@@ -151,6 +152,13 @@ let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+
+" vim-autoformat
+let g:formatdef_rustfmt = '"rustfmt"'
+let g:formatters_rust = ['rustfmt']
+
+" languagetool
+let g:languagetool_jar = "~/bin/LanguageTool-3.2/languagetool-commandline.jar"
 
 " ------------- EXPERIMENTAL
 
@@ -183,11 +191,7 @@ function! SwitchSpellcheck()
 endfunction
 map <F4> :call SwitchSpellcheck()<CR>
 
-set mouse=a
-
 " Neovim GUI
 command! -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
-Guifont Anonymous Pro for Powerline:h15
-command! -nargs=? Guifontinc call rpcnotify(0, 'Gui', 'IncreaseFont', "<args>")
-command! -nargs=? Guifontdec call rpcnotify(0, 'Gui', 'DecreaseFont', "<args>")
+Guifont DejaVu Sans Mono:h15
 
