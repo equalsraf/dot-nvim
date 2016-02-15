@@ -96,9 +96,14 @@ let g:airline_powerline_fonts = 1
 
 let g:local_vimrc = {'names':['localvimrc'],'hash_fun':'LVRHashOfFile'}
 
+" Neomake: open quickfix by default
+let g:neomake_open_list=2
+
 " --------- File types
 au FileType python setlocal tabstop=8 expandtab shiftwidth=4 softtabstop=4
-au FileType rust setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+au FileType rust
+	\ setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4 |
+	\ let g:neomake_enabled_makers = ['cargo']
 au FileType html,javascript,css setlocal tabstop=4 shiftwidth=4 softtabstop=4
 au BufNewFile,BufRead *.md set filetype=markdown
 au FileType markdown setlocal wrap linebreak nolist
@@ -126,12 +131,12 @@ nmap <leader>bl :ls<CR>
 
 
 " Move lines up/down with Alt+hjkl keys
-nnoremap <A-j> :m+<CR>==
-nnoremap <A-k> :m-2<CR>==
-inoremap <A-j> <Esc>:m+<CR>==gi
-inoremap <A-k> <Esc>:m-2<CR>==gi
-vnoremap <A-j> :m'>+<CR>gv=gv
-vnoremap <A-k> :m-2<CR>gv=gv
+"nnoremap <A-j> :m+<CR>==
+"nnoremap <A-k> :m-2<CR>==
+"inoremap <A-j> <Esc>:m+<CR>==gi
+"inoremap <A-k> <Esc>:m-2<CR>==gi
+"vnoremap <A-j> :m'>+<CR>gv=gv
+"vnoremap <A-k> :m-2<CR>gv=gv
 
 " j/k Jump to the next line - but since I like long wrapped lines
 " they should jump to the next ROW
