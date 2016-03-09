@@ -21,6 +21,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'vim-scripts/LanguageTool'
 Plug 'mrk21/yaml-vim'
 Plug 'justinmk/vim-dirvish'
+Plug '~/Code/neovim-qt-plugin'
 call plug#end()
 
 " WTF
@@ -40,8 +41,7 @@ let pad#open_in_split=0
 let pad#position="right"
 let pad#default_format = "markdown"
 let pad#rename_files=0
-let pad#name_format="%Y-%m-%d-{default}"
-"let pad#search_backend="ack"
+let pad#search_backend="ag"
 let pad#ignore_files="*.jpg"
 
 syntax on				" Syntax hightlight is On
@@ -126,17 +126,10 @@ nmap <leader>h :bprevious<CR>
 " Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab
 nmap <leader>bq :bp <BAR> bd #<CR>
+" Discard buffer
+nmap <leader>bx :bp <BAR> bd! #<CR>
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
-
-
-" Move lines up/down with Alt+hjkl keys
-"nnoremap <A-j> :m+<CR>==
-"nnoremap <A-k> :m-2<CR>==
-"inoremap <A-j> <Esc>:m+<CR>==gi
-"inoremap <A-k> <Esc>:m-2<CR>==gi
-"vnoremap <A-j> :m'>+<CR>gv=gv
-"vnoremap <A-k> :m-2<CR>gv=gv
 
 " j/k Jump to the next line - but since I like long wrapped lines
 " they should jump to the next ROW
@@ -198,10 +191,8 @@ map <F4> :call SwitchSpellcheck()<CR>
 
 " Neovim GUI
 command! -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
-
 if has('win32')
 	Guifont DejaVu Sans Mono for Powerline:h15
 else
 	Guifont DejaVu Sans Mono:h15
 endif
-
