@@ -20,16 +20,16 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'vim-scripts/LanguageTool'
 Plug 'mrk21/yaml-vim'
-Plug 'justinmk/vim-dirvish'
-Plug '~/Code/neovim-qt-plugin'
+Plug 'vim-scripts/vim-signature'
+"Plug 'equalsraf/neovim-gui-shim'
 call plug#end()
 
 " WTF
 set bs=indent,eol,start
 
-let mapleader = " "			" <space> is the Leader - put this in before the plugins
+let mapleader = " "				" <space> is the Leader - put this in before the plugins
 
-filetype plugin indent on    " required
+filetype plugin indent on		" required
 
 " Enable the clipboard
 set clipboard+=unnamedplus
@@ -44,7 +44,7 @@ let pad#rename_files=0
 let pad#search_backend="ag"
 let pad#ignore_files="*.jpg"
 
-syntax on				" Syntax hightlight is On
+syntax on					" Syntax hightlight is On
 set autoindent				" cursor at the same indent as line above
 set ruler
 set noerrorbells			" don't whine
@@ -52,7 +52,7 @@ set novisualbell			" No epileptic attacks please
 set shortmess=atI			" shorten messages and don't show intro
 set wildmenu
 set wildmode=list:longest,full		" set wildmode to list full
-set cul					" highlight line under cursor
+set cul						" highlight line under cursor
 set laststatus=2			" Always show statusline
 set wildignore=*.swp,*.pyc,*.class,*.o,*.moc
 set wildignorecase
@@ -62,7 +62,7 @@ set nofoldenable			" I hate folding with a passion
 set title
 
 " Default indentation goes like this
-set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 
 " Portuguese users may prefer to use ç instead of :
 nnoremap ç :
@@ -77,8 +77,8 @@ nnoremap  <Right> ""
 nnoremap Q <nop>
 
 " Move up and down in autocomplete with <c-j> and <c-k>
-inoremap <expr> <c-j> ("\<C-n>")
-inoremap <expr> <c-k> ("\<C-p>")
+inoremap <expr> <C-j> ("\<C-n>")
+inoremap <expr> <C-k> ("\<C-p>")
 
 " ------------ Text edit/search
 set hlsearch				" highlight search results
@@ -112,7 +112,6 @@ let g:TSSshowErrors=1
 " Tex - show breaks, disable cul, scroll one line at a time
 au FileType tex setlocal wrap linebreak showbreak=.. nocul scroll=1
 
-" --------- Some mappings
 set pastetoggle=<F2>	" F2 toggles the paste mode
 
 " Dont use Tabs use buffers
@@ -160,20 +159,6 @@ let g:languagetool_jar = "~/bin/LanguageTool-3.2/languagetool-commandline.jar"
 
 " ------------- EXPERIMENTAL
 
-" Get our hostname
-function! Hostname()
-	"
-	" 1. First we try to get the $HOST variable
-	" 2. IF $HOST does not exist call !hostname
-	let hostname = $HOST
-	if hostname != ""
-		return hostname
-	endif
-
-	let hostname = system('hostname')
-	return hostname
-endfunction
-
 "
 " Toggle (EN -> PT -> Disabled) spell by pressing F4
 "
@@ -189,10 +174,6 @@ function! SwitchSpellcheck()
 endfunction
 map <F4> :call SwitchSpellcheck()<CR>
 
-" Neovim GUI
-command! -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>") | let g:Guifont="<args>"
-if has('win32')
-	Guifont DejaVu Sans Mono for Powerline:h15
-else
-	Guifont DejaVu Sans Mono:h15
-endif
+" LocalLeader-o add a new line starting with a timestamp
+au FileType markdown map <LocalLeader>o o<C-R>=strftime("%a %d-%m %I:%M%p: ")<CR>
+
