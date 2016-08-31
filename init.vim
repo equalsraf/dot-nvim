@@ -21,6 +21,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'vim-scripts/LanguageTool'
 Plug 'mrk21/yaml-vim'
 Plug 'vim-scripts/vim-signature'
+Plug 'cloudhead/neovim-fuzzy'
 "Plug 'equalsraf/neovim-gui-shim'
 call plug#end()
 
