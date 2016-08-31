@@ -25,9 +25,6 @@ Plug 'cloudhead/neovim-fuzzy'
 "Plug 'equalsraf/neovim-gui-shim'
 call plug#end()
 
-" WTF
-set bs=indent,eol,start
-
 let mapleader = " "				" <space> is the Leader - put this in before the plugins
 
 filetype plugin indent on		" required
