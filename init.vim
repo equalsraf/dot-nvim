@@ -44,13 +44,11 @@ let pad#ignore_files="*.jpg"
 
 syntax on					" Syntax hightlight is On
 set autoindent				" cursor at the same indent as line above
-set ruler
 set noerrorbells			" don't whine
 set novisualbell			" No epileptic attacks please
 set shortmess=atI			" shorten messages and don't show intro
 set wildmenu
 set wildmode=list:longest,full		" set wildmode to list full
-set cul						" highlight line under cursor
 set laststatus=2			" Always show statusline
 set wildignore=*.swp,*.pyc,*.class,*.o,*.moc
 set wildignorecase
@@ -133,6 +131,10 @@ nmap <leader>bl :ls<CR>
 nnoremap j gj
 nnoremap k gk
 
+" Leave terminal with Escape
+tnoremap <Esc> <C-\><C-n>
+let g:terminal_scrollback_buffer_size = 10000
+
 " ------------- Airline
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
@@ -173,5 +175,5 @@ endfunction
 map <F4> :call SwitchSpellcheck()<CR>
 
 " LocalLeader-o add a new line starting with a timestamp
-au FileType markdown map <LocalLeader>o o<C-R>=strftime("%a %d-%m %I:%M%p: ")<CR>
+au FileType markdown map <LocalLeader>o o<C-R>=strftime("%a %d-%m-%Y %I:%M%p: ")<CR>
 
