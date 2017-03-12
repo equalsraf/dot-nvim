@@ -1,5 +1,4 @@
-plugged
-autoload/plug.vim.old
+plugins
 .*
 shada
 spell

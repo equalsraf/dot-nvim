@@ -3,27 +3,38 @@ if $SHELL =~ 'bin/fish'
 	set shell=/bin/sh
 endif
 
-call plug#begin(fnamemodify($MYVIMRC, ':p:h') . '/plugged')
-" Make sure you use single quotes
-Plug 'bling/vim-airline'
-Plug 'cschlueter/vim-wombat'
-Plug 'fmoralesc/vim-pad'
-Plug 'MarcWeber/vim-addon-local-vimrc'
-Plug 'gabesoft/vim-ags'
-Plug 'tpope/vim-fugitive'
-Plug 'benekastah/neomake'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'rust-lang/rust.vim'
-Plug 'rhysd/committia.vim'
-Plug 'Shougo/deoplete.nvim'
-Plug 'Chiel92/vim-autoformat'
-Plug 'vim-scripts/LanguageTool'
-Plug 'mrk21/yaml-vim'
-Plug 'vim-scripts/vim-signature'
-Plug 'cloudhead/neovim-fuzzy'
-"Plug 'equalsraf/neovim-gui-shim'
-call plug#end()
+" Dein
+if has('win32')
+	let dein_path=expand('~/Appdata/Local/nvim/dein.vim')
+	let dein_plugin_path=('~/Appdata/Local/nvim/plugins')
+else
+	let dein_path=expand('~/.config/nvim/dein.vim')
+	let dein_plugin_path=('~/.config/nvim/plugins')
+endif
+let &runtimepath.=','.expand(dein_path)
+if dein#load_state(dein_plugin_path)
+	call dein#begin(dein_plugin_path)
+
+	call dein#add(dein_path)
+	call dein#add('haya14busa/dein-command.vim')
+	call dein#add('rust-lang/rust.vim')
+	call dein#add('majutsushi/tagbar')
+	call dein#add('neomake/neomake')
+	call dein#add('cschlueter/vim-wombat')
+	call dein#add('jremmen/vim-ripgrep')
+	call dein#add('tpope/vim-fugitive')
+	call dein#add('Chiel92/vim-autoformat')
+	call dein#add('mrk21/yaml-vim')
+	call dein#add('rust-lang/rust.vim')
+	call dein#add('rhysd/committia.vim')
+	call dein#add('fmoralesc/vim-pad')
+	call dein#add('MarcWeber/vim-addon-local-vimrc')
+	"call dein#add('equalsraf/neovim-gui-shim')
+	"call dein#add('')
+
+	call dein#end()
+	call dein#save_state()
+endif
 
 let mapleader = " "				" <space> is the Leader - put this in before the plugins
 
@@ -61,7 +72,7 @@ set title
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 
 " Portuguese users may prefer to use ç instead of :
-nnoremap ç :
+"nnoremap ç :
 
 " Disable arrow keys - Real men don't use the arrow keys
 nnoremap  <Up> ""
@@ -104,7 +115,6 @@ au FileType html,javascript,css setlocal tabstop=4 shiftwidth=4 softtabstop=4
 au BufNewFile,BufRead *.md set filetype=markdown
 au FileType markdown setlocal wrap linebreak nolist
 au BufRead,BufNewFile *.ts setlocal filetype=typescript
-let g:TSSshowErrors=1
 " Tex - show breaks, disable cul, scroll one line at a time
 au FileType tex setlocal wrap linebreak showbreak=.. nocul scroll=1
 
@@ -135,29 +145,9 @@ nnoremap k gk
 tnoremap <Esc> <C-\><C-n>
 let g:terminal_scrollback_buffer_size = 10000
 
-" ------------- Airline
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-" Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-
-" Ultisnips
-let g:UltiSnipsExpandTrigger="<S-Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-
 " vim-autoformat
 let g:formatdef_rustfmt = '"rustfmt"'
 let g:formatters_rust = ['rustfmt']
-
-" languagetool
-let g:languagetool_jar = "~/bin/LanguageTool-3.2/languagetool-commandline.jar"
-
-" ------------- EXPERIMENTAL
 
 "
 " Toggle (EN -> PT -> Disabled) spell by pressing F4
