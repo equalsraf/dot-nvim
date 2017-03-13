@@ -25,10 +25,10 @@ if dein#load_state(dein_plugin_path)
 	call dein#add('tpope/vim-fugitive')
 	call dein#add('Chiel92/vim-autoformat')
 	call dein#add('mrk21/yaml-vim')
-	call dein#add('rust-lang/rust.vim')
 	call dein#add('rhysd/committia.vim')
 	call dein#add('fmoralesc/vim-pad')
 	call dein#add('MarcWeber/vim-addon-local-vimrc')
+	call dein#add('mihaifm/bufstop')
 	"call dein#add('equalsraf/neovim-gui-shim')
 	"call dein#add('')
 
@@ -132,6 +132,9 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 nmap <leader>bx :bp <BAR> bd! #<CR>
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
+
+" Cycle through buffers
+nmap <leader>bb :BufstopModeFast<CR>
 
 " j/k Jump to the next line - but since I like long wrapped lines
 " they should jump to the next ROW
