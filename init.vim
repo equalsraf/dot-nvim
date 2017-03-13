@@ -98,9 +98,6 @@ set bg=dark
 set t_Co=256
 color wombat256
 
-" powerline fonts :D 
-let g:airline_powerline_fonts = 1
-
 let g:local_vimrc = {'names':['localvimrc'],'hash_fun':'LVRHashOfFile'}
 
 " Neomake: open quickfix by default

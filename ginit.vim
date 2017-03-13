@@ -1,4 +1,4 @@
 
 " Neovim GUI
-Guifont DejaVu Sans Mono:h24
+Guifont DejaVu Sans Mono:h14
 
