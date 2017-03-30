@@ -98,7 +98,8 @@ set bg=dark
 set t_Co=256
 color wombat256
 
-let g:local_vimrc = {'names':['localvimrc'],'hash_fun':'LVRHashOfFile'}
+" Search down into subfolders
+set path+=**
 
 " Neomake: open quickfix by default
 let g:neomake_open_list=2
@@ -114,8 +115,6 @@ au FileType markdown setlocal wrap linebreak nolist
 au BufRead,BufNewFile *.ts setlocal filetype=typescript
 " Tex - show breaks, disable cul, scroll one line at a time
 au FileType tex setlocal wrap linebreak showbreak=.. nocul scroll=1
-
-set pastetoggle=<F2>	" F2 toggles the paste mode
 
 " Dont use Tabs use buffers
 
